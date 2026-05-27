@@ -1,0 +1,25 @@
+name: 🐛 Bug report
+description: Something is broken in the demo
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear, short description of the bug.
+      placeholder: When I press ⌘K and then…
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Sign in as the admin
+        2. Open /dashboard/portfolio
+        3. …
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Chrome 132 on macOS 15, Node 20.11

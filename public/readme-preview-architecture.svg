@@ -1,0 +1,92 @@
+<svg width="1080" height="420" viewBox="0 0 1080 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wraith architecture overview">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1080" y2="420">
+      <stop offset="0%" stop-color="#050507"/>
+      <stop offset="100%" stop-color="#0C0C10"/>
+    </linearGradient>
+    <pattern id="g2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#FFFFFF" stroke-opacity="0.025"/>
+    </pattern>
+  </defs>
+  <rect width="1080" height="420" fill="url(#bg2)"/>
+  <rect width="1080" height="420" fill="url(#g2)"/>
+
+  <!-- Title -->
+  <text x="40" y="40" font-family="ui-monospace, monospace" font-size="11" fill="#3A3A48" letter-spacing="2">ARCHITECTURE</text>
+  <text x="40" y="68" font-family="Georgia, serif" font-size="22" fill="#EAEAEF">How the demo flows end-to-end</text>
+
+  <!-- 4 columns -->
+  <g font-family="ui-monospace, monospace" font-size="11" fill="#EAEAEF">
+
+    <!-- Col 1: Data -->
+    <g transform="translate(40 110)">
+      <rect width="220" height="260" rx="10" fill="#0C0C10" stroke="rgba(255,255,255,0.08)"/>
+      <text x="16" y="28" font-size="10" fill="#3A3A48" letter-spacing="2">1 · DATA</text>
+      <text x="16" y="56" font-size="15" fill="#EAEAEF">Mock signals</text>
+      <text x="16" y="80" font-size="11" fill="#6B6B7B">30+ realistic listings across</text>
+      <text x="16" y="96" font-size="11" fill="#6B6B7B">5 platforms × 6 categories</text>
+      <text x="16" y="124" font-size="10" fill="#3A3A48">·</text>
+      <text x="16" y="148" font-size="11" fill="#EAEAEF">90-day price history</text>
+      <text x="16" y="172" font-size="11" fill="#EAEAEF">Drops calendar</text>
+      <text x="16" y="196" font-size="11" fill="#EAEAEF">Portfolio flips</text>
+      <text x="16" y="220" font-size="11" fill="#EAEAEF">Social momentum</text>
+      <text x="16" y="244" font-size="10" fill="#00FF88">src/lib/mock-data.ts</text>
+    </g>
+
+    <!-- Col 2: State -->
+    <g transform="translate(280 110)">
+      <rect width="220" height="260" rx="10" fill="#0C0C10" stroke="rgba(0,255,136,0.25)"/>
+      <text x="16" y="28" font-size="10" fill="#00FF88" letter-spacing="2">2 · STATE</text>
+      <text x="16" y="56" font-size="15" fill="#EAEAEF">WraithContext</text>
+      <text x="16" y="80" font-size="11" fill="#6B6B7B">user · role · viewMode</text>
+      <text x="16" y="96" font-size="11" fill="#6B6B7B">demoMode · liveMode</text>
+      <text x="16" y="124" font-size="11" fill="#EAEAEF">ActivityContext</text>
+      <text x="16" y="140" font-size="11" fill="#6B6B7B">toasts + feed</text>
+      <text x="16" y="168" font-size="11" fill="#EAEAEF">AssistantContext</text>
+      <text x="16" y="184" font-size="11" fill="#6B6B7B">chat history</text>
+      <text x="16" y="212" font-size="11" fill="#EAEAEF">CommandPaletteCtx</text>
+      <text x="16" y="244" font-size="10" fill="#00FF88">localStorage persisted</text>
+    </g>
+
+    <!-- Col 3: Chrome -->
+    <g transform="translate(520 110)">
+      <rect width="220" height="260" rx="10" fill="#0C0C10" stroke="rgba(255,255,255,0.08)"/>
+      <text x="16" y="28" font-size="10" fill="#3A3A48" letter-spacing="2">3 · CHROME</text>
+      <text x="16" y="56" font-size="15" fill="#EAEAEF">Global overlays</text>
+      <text x="16" y="80" font-size="11" fill="#6B6B7B">Command palette (⌘K)</text>
+      <text x="16" y="96" font-size="11" fill="#6B6B7B">Wraith Intelligence (⌘J)</text>
+      <text x="16" y="120" font-size="11" fill="#6B6B7B">Toast stack + bell</text>
+      <text x="16" y="144" font-size="11" fill="#6B6B7B">Live signal stream</text>
+      <text x="16" y="168" font-size="11" fill="#6B6B7B">Onboarding tour</text>
+      <text x="16" y="192" font-size="11" fill="#6B6B7B">Money mode 💸</text>
+      <text x="16" y="216" font-size="11" fill="#6B6B7B">Keyboard shortcuts</text>
+      <text x="16" y="244" font-size="10" fill="#00FF88">components/chrome/*</text>
+    </g>
+
+    <!-- Col 4: Pages -->
+    <g transform="translate(760 110)">
+      <rect width="280" height="260" rx="10" fill="#0C0C10" stroke="rgba(255,184,0,0.25)"/>
+      <text x="16" y="28" font-size="10" fill="#FFB800" letter-spacing="2">4 · PAGES</text>
+      <text x="16" y="56" font-size="15" fill="#EAEAEF">/dashboard</text>
+      <text x="16" y="76" font-size="11" fill="#6B6B7B">spotlight + metrics + feed</text>
+      <text x="16" y="100" font-size="11" fill="#EAEAEF">/dashboard/signal/[id]</text>
+      <text x="16" y="116" font-size="11" fill="#6B6B7B">deep dive · simulator · risk</text>
+      <text x="16" y="140" font-size="11" fill="#EAEAEF">/dashboard/portfolio</text>
+      <text x="16" y="156" font-size="11" fill="#6B6B7B">realized + projected P&amp;L</text>
+      <text x="16" y="180" font-size="11" fill="#EAEAEF">/dashboard/analytics</text>
+      <text x="16" y="196" font-size="11" fill="#6B6B7B">heatmap · social momentum</text>
+      <text x="16" y="220" font-size="11" fill="#EAEAEF">/dashboard/admin</text>
+      <text x="16" y="244" font-size="10" fill="#FFB800">restricted · feature flags</text>
+    </g>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#00FF88" stroke-opacity="0.35" stroke-width="1.5" fill="none">
+    <path d="M260 240 L 280 240"/>
+    <path d="M500 240 L 520 240"/>
+    <path d="M740 240 L 760 240"/>
+    <path d="M255 235 L 280 240 L 255 245" stroke-opacity="0.5"/>
+    <path d="M495 235 L 520 240 L 495 245" stroke-opacity="0.5"/>
+    <path d="M735 235 L 760 240 L 735 245" stroke-opacity="0.5"/>
+  </g>
+</svg>

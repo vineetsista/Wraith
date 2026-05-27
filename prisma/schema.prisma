@@ -1,0 +1,129 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                     String             @id @default(cuid())
+  email                  String             @unique
+  name                   String?
+  passwordHash           String?
+  apiKey                 String?            @unique @default(cuid())
+  emailVerified          DateTime?
+  verificationToken      String?
+  resetToken             String?
+  resetTokenExpires      DateTime?
+  discordWebhookUrl      String?
+  minProfit              Int                @default(30)
+  minConfidence          Int                @default(70)
+  categories             Json               @default("[\"sneakers\",\"streetwear\"]")
+  role                   String             @default("user")
+  createdAt              DateTime           @default(now())
+  updatedAt              DateTime           @updatedAt
+
+  watchedItems           WatchedItem[]
+  flipLogs               FlipLog[]
+
+  @@map("users")
+}
+
+model Signal {
+  id               String       @id @default(cuid())
+  itemName         String
+  brand            String
+  category         String
+  imageUrl         String?
+  imageGradient    String?
+  buyPlatform      String
+  buyPrice         Float
+  sellPlatform     String
+  sellPrice        Float
+  fees             Float
+  profit           Float
+  roi              Float
+  confidence       Int
+  urgency          String
+  signalType       String
+  aiNarrative      String       @db.Text
+  socialScore      Int?
+  tiktokMentions   Int?
+  size             String?
+  condition        String?
+  expiresAt        DateTime?
+  isActive         Boolean      @default(true)
+  createdAt        DateTime     @default(now())
+
+  watchedItems     WatchedItem[]
+  flipLogs         FlipLog[]
+
+  @@map("signals")
+}
+
+model WatchedItem {
+  id                        String   @id @default(cuid())
+  userId                    String
+  signalId                  String
+  alertThresholdProfit      Float?
+  alertThresholdConfidence  Int?
+  notes                     String?
+  isAlerted                 Boolean  @default(false)
+  createdAt                 DateTime @default(now())
+
+  user                      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  signal                    Signal   @relation(fields: [signalId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, signalId])
+  @@map("watched_items")
+}
+
+model FlipLog {
+  id            String   @id @default(cuid())
+  userId        String
+  signalId      String
+  buyPrice      Float
+  sellPrice     Float
+  actualProfit  Float
+  platform      String
+  notes         String?
+  flippedAt     DateTime @default(now())
+
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  signal        Signal   @relation(fields: [signalId], references: [id])
+
+  @@map("flip_logs")
+}
+
+model Drop {
+  id                  String   @id @default(cuid())
+  itemName            String
+  brand               String
+  category            String
+  imageUrl            String?
+  imageGradient       String?
+  retailPrice         Float
+  predictedResaleMin  Float
+  predictedResaleMax  Float
+  predictedProfit     Float
+  releasePlatform     String
+  releaseDate         DateTime
+  difficultyRating    String
+  aiAnalysis          String   @db.Text
+  createdAt           DateTime @default(now())
+
+  @@map("drops")
+}
+
+model PriceHistory {
+  id          String   @id @default(cuid())
+  itemName    String
+  platform    String
+  price       Float
+  recordedAt  DateTime @default(now())
+
+  @@index([itemName, platform])
+  @@map("price_history")
+}

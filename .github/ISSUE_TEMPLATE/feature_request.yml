@@ -1,0 +1,16 @@
+name: ✨ Feature idea
+description: Suggest a feature for the demo
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you add?
+      description: Describe the feature and why it would make Wraith better.
+    validations:
+      required: true
+  - type: textarea
+    id: sketch
+    attributes:
+      label: Any sketch / mock?
+      description: Drop a screenshot or ASCII layout if you have one.
