@@ -5,6 +5,10 @@
 <br />
 
 <p>
+  <a href="https://wraith-tau.vercel.app"><img alt="Live demo" src="https://img.shields.io/badge/▶_Live_demo-wraith--tau.vercel.app-00FF88?style=for-the-badge&labelColor=050507&color=00FF88"></a>
+</p>
+
+<p>
   <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvineetsista%2FWraith&project-name=wraith&repository-name=wraith"><img alt="Deploy to Vercel" src="https://vercel.com/button"></a>
   <a href="#-quick-start"><img alt="run locally" src="https://img.shields.io/badge/run_locally-npm%20run%20dev-00FF88?style=flat-square&labelColor=050507&color=00FF88"></a>
   <a href="https://github.com/vineetsista/Wraith/actions/workflows/ci.yml"><img alt="ci" src="https://img.shields.io/github/actions/workflow/status/vineetsista/Wraith/ci.yml?branch=main&style=flat-square&labelColor=050507&label=ci"></a>
@@ -28,11 +32,16 @@
 
 This is a portfolio piece. The data is mocked, the AI is scripted, and the whole thing runs locally with zero keys. But every screen is built to demo-grade fidelity — keyboard shortcuts, live-updating ticker, animated activity feed, money-mode easter egg, the works.
 
+### → [Try the live demo](https://wraith-tau.vercel.app)
+
+Click the badge above, or run it locally:
+
 ```bash
 git clone https://github.com/vineetsista/Wraith
 cd Wraith && npm install && npm run dev
 # → open http://localhost:3000
-# → sign in as  vineet.sista@gmail.com  (no password — admin-only demo)
+# → on the sign-in page, click "→ vineet.sista@gmail.com" for the admin demo
+# → or type any email + any password
 ```
 
 <br />
@@ -140,13 +149,17 @@ cd Wraith && npm install && npm run dev
 
 ## 🚀 Quick start
 
-### Option 1 — One-click Vercel deploy
+### Option 1 — Use the live demo
+
+Already deployed at **[wraith-tau.vercel.app](https://wraith-tau.vercel.app)**. No install, no config — just open it.
+
+### Option 2 — One-click Vercel deploy (your own copy)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvineetsista%2FWraith&project-name=wraith&repository-name=wraith)
 
 Click the button. Vercel will fork the repo to your GitHub, deploy it to a `*.vercel.app` URL, and hand you the live demo in about 90 seconds. **No env vars required.**
 
-### Option 2 — Bare metal
+### Option 3 — Bare metal
 
 ```bash
 git clone https://github.com/vineetsista/Wraith.git
@@ -157,7 +170,7 @@ npm run dev
 
 Open **http://localhost:3000** and click *Launch the demo*.
 
-### Option 3 — Docker
+### Option 4 — Docker
 
 ```bash
 docker compose up -d
