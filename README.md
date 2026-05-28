@@ -5,8 +5,9 @@
 <br />
 
 <p>
-  <a href="#-quick-start"><img alt="quick start" src="https://img.shields.io/badge/run_locally-npm%20run%20dev-00FF88?style=flat-square&labelColor=050507&color=00FF88"></a>
-  <a href="#-features"><img alt="features" src="https://img.shields.io/badge/features-15%2B-EAEAEF?style=flat-square&labelColor=050507"></a>
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvineetsista%2FWraith&project-name=wraith&repository-name=wraith"><img alt="Deploy to Vercel" src="https://vercel.com/button"></a>
+  <a href="#-quick-start"><img alt="run locally" src="https://img.shields.io/badge/run_locally-npm%20run%20dev-00FF88?style=flat-square&labelColor=050507&color=00FF88"></a>
+  <a href="https://github.com/vineetsista/Wraith/actions/workflows/ci.yml"><img alt="ci" src="https://img.shields.io/github/actions/workflow/status/vineetsista/Wraith/ci.yml?branch=main&style=flat-square&labelColor=050507&label=ci"></a>
   <a href="#%EF%B8%8F-tech-stack"><img alt="next.js" src="https://img.shields.io/badge/Next.js-14-EAEAEF?style=flat-square&labelColor=050507&logo=next.js&logoColor=00FF88"></a>
   <a href="#%EF%B8%8F-tech-stack"><img alt="typescript" src="https://img.shields.io/badge/TypeScript-5-EAEAEF?style=flat-square&labelColor=050507&logo=typescript&logoColor=00FF88"></a>
   <a href="#%EF%B8%8F-tech-stack"><img alt="tailwind" src="https://img.shields.io/badge/Tailwind-3-EAEAEF?style=flat-square&labelColor=050507&logo=tailwindcss&logoColor=00FF88"></a>
@@ -37,7 +38,8 @@ cd Wraith && npm install && npm run dev
 <br />
 
 <div align="center">
-  <img src="public/readme-preview-signal.svg" alt="A Wraith signal card showing buy/sell platforms, profit, and confidence" width="92%" />
+  <img src="public/screenshots/dashboard.png" alt="Wraith dashboard — spotlight signal, metric strip, live ticker, signal feed" width="92%" />
+  <p><sub>The dashboard — spotlight pick, live ticker, metric strip, signal feed, AI assistant FAB. All real.</sub></p>
 </div>
 
 ---
@@ -109,9 +111,42 @@ cd Wraith && npm install && npm run dev
 
 ---
 
+## 📸 More screens
+
+<table>
+<tr>
+<td width="50%">
+<img src="public/screenshots/signal-detail.png" alt="Signal detail with profit simulator and risk dial" />
+<sub><b>Signal deep-dive</b> — 5-factor confidence breakdown, risk dial, live profit simulator with unit / discount / sell-price / hold-time sliders.</sub>
+</td>
+<td width="50%">
+<img src="public/screenshots/portfolio.png" alt="Portfolio tracker with monthly P&L and category mix" />
+<sub><b>Portfolio</b> — realized + projected P&L, monthly area chart, category pie, best-flip-ever tile, full flip table.</sub>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="public/screenshots/analytics.png" alt="Analytics page with market heatmap" />
+<sub><b>Analytics</b> — market heatmap (category × platform), 28-day signal volume, category breakdown, hot items, social momentum.</sub>
+</td>
+<td width="50%">
+<img src="public/screenshots/admin.png" alt="Admin console with feature flags and audit log" />
+<sub><b>Admin Console</b> — platform health, demo controls, feature flags (live), audit log, user table with impersonation. <b>Restricted</b>.</sub>
+</td>
+</tr>
+</table>
+
+---
+
 ## 🚀 Quick start
 
-### Option 1 — Bare metal
+### Option 1 — One-click Vercel deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvineetsista%2FWraith&project-name=wraith&repository-name=wraith)
+
+Click the button. Vercel will fork the repo to your GitHub, deploy it to a `*.vercel.app` URL, and hand you the live demo in about 90 seconds. **No env vars required.**
+
+### Option 2 — Bare metal
 
 ```bash
 git clone https://github.com/vineetsista/Wraith.git
@@ -122,7 +157,7 @@ npm run dev
 
 Open **http://localhost:3000** and click *Launch the demo*.
 
-### Option 2 — Docker
+### Option 3 — Docker
 
 ```bash
 docker compose up -d

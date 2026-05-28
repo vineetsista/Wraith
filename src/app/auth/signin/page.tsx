@@ -20,12 +20,13 @@ export default function SignInPage() {
     setLoading(true);
     setError('');
     await new Promise(r => setTimeout(r, 800));
-    if (email && password) {
-      signIn(email);
-      router.push('/dashboard');
-    } else {
-      setError('Please enter your email and password.');
+    if (!email.trim()) {
+      setError('Please enter your email. (Any password works in demo mode.)');
+      setLoading(false);
+      return;
     }
+    signIn(email);
+    router.push('/dashboard');
     setLoading(false);
   }
 
@@ -120,8 +121,7 @@ export default function SignInPage() {
                   type={showPass ? 'text' : 'password'}
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  required
+                  placeholder="any password works"
                   className="w-full h-9 px-3 pr-10 bg-elevated border border-border-subtle rounded font-mono text-[13px] text-[#EAEAEF] placeholder:text-ghost focus:border-border-hover focus:outline-none transition-colors"
                 />
                 <button

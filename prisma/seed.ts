@@ -17,19 +17,17 @@ async function main() {
   // Create demo user
   const user = await prisma.user.create({
     data: {
-      email: 'demo@wraith.gg',
-      name: 'Demo User',
+      email: 'vineet.sista@gmail.com',
+      name: 'Vineet Sista',
       passwordHash: '$2b$10$demo_hash_placeholder',
       emailVerified: new Date(),
-      subscriptionStatus: 'active',
-      trialEndsAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       minProfit: 30,
       minConfidence: 70,
       categories: ['sneakers', 'streetwear', 'trading_cards'],
       role: 'admin',
     },
   });
-  console.log(`✓ Created demo user: ${user.email}`);
+  console.log(`✓ Created admin user: ${user.email}`);
 
   // Seed signals
   for (const signal of MOCK_SIGNALS) {
@@ -118,7 +116,7 @@ async function main() {
   console.log(`✓ Seeded ${flippedSignals.length} flip logs`);
 
   console.log('\n✅ Database seeded successfully!');
-  console.log(`\nDemo credentials:\n  Email: demo@wraith.gg\n  Password: any value (demo mode)`);
+  console.log(`\nAdmin: vineet.sista@gmail.com  (any password — demo mode)`);
 }
 
 main()

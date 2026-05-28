@@ -14,6 +14,7 @@ export interface WraithUser {
 }
 
 interface WraithContextValue {
+  hydrated: boolean;
   user: WraithUser | null;
   isAdmin: boolean;
   viewMode: ViewMode;
@@ -180,6 +181,7 @@ export function WraithProvider({ children }: { children: ReactNode }) {
   return (
     <WraithContext.Provider
       value={{
+        hydrated,
         user: state.user,
         isAdmin,
         viewMode: state.viewMode,

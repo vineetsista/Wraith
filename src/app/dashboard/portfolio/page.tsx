@@ -39,10 +39,12 @@ function ChartTooltip({ active, payload, label }: any) {
 }
 
 export default function PortfolioPage() {
-  const { demoMode } = useWraith();
-  const flips = useMemo(() => (demoMode ? getPortfolioFlips() : []), [demoMode]);
+  const { hydrated, demoMode } = useWraith();
+  // Until hydration completes, assume demo mode so the page renders fully (avoids empty-state flash).
+  const effectiveDemoMode = hydrated ? demoMode : true;
+  const flips = useMemo(() => (effectiveDemoMode ? getPortfolioFlips() : []), [effectiveDemoMode]);
   const stats = useMemo(() => getPortfolioStats(flips), [flips]);
-  const monthly = useMemo(() => (demoMode ? getMonthlyPerformance(flips) : []), [demoMode, flips]);
+  const monthly = useMemo(() => (effectiveDemoMode ? getMonthlyPerformance(flips) : []), [effectiveDemoMode, flips]);
   const categories = useMemo(() => getCategoryPerformance(flips), [flips]);
   const [filter, setFilter] = useState<'all' | 'open' | 'sold' | 'monitoring'>('all');
 
@@ -77,7 +79,7 @@ export default function PortfolioPage() {
           </div>
         </div>
 
-        {!demoMode ? (
+        {!effectiveDemoMode ? (
           <div className="rounded-lg border border-border-subtle bg-surface p-12 text-center">
             <Briefcase size={28} className="text-ghost mx-auto mb-3" />
             <p className="font-serif text-[20px] text-[#EAEAEF] mb-2">No flips logged yet</p>

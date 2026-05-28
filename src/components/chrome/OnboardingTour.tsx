@@ -35,16 +35,16 @@ const STEPS = [
 ];
 
 export default function OnboardingTour() {
-  const { hasSeenTour, markTourSeen, isAdmin } = useWraith();
+  const { hydrated, hasSeenTour, markTourSeen, isAdmin } = useWraith();
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    if (!hasSeenTour) {
+    if (hydrated && !hasSeenTour) {
       const t = setTimeout(() => setOpen(true), 800);
       return () => clearTimeout(t);
     }
-  }, [hasSeenTour]);
+  }, [hydrated, hasSeenTour]);
 
   if (!open) return null;
 

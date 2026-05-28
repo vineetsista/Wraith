@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Star, Bell, BellOff, StickyNote, TrendingUp, TrendingDown, Minus, Trash2 } from 'lucide-react';
 import { MOCK_SIGNALS } from '@/lib/mock-data';
@@ -21,10 +21,18 @@ const DEMO_WATCHLIST = MOCK_SIGNALS.filter(s => s.confidence >= 80).slice(0, 6).
 }));
 
 export default function WatchlistPage() {
-  const { demoMode } = useWraith();
-  const [items, setItems] = useState(demoMode ? DEMO_WATCHLIST : []);
+  const { hydrated, demoMode } = useWraith();
+  const [items, setItems] = useState(DEMO_WATCHLIST);
   const [editingNote, setEditingNote] = useState<string | null>(null);
   const [noteText, setNoteText] = useState('');
+
+  // Once context hydrates, mirror the toggle.
+  useEffect(() => {
+    if (hydrated && !demoMode) setItems([]);
+    else if (hydrated && demoMode && items.length === 0) setItems(DEMO_WATCHLIST);
+    // intentionally omit items in deps — only react to demoMode flips
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hydrated, demoMode]);
 
   function removeItem(id: string) {
     setItems(prev => prev.filter(i => i.id !== id));

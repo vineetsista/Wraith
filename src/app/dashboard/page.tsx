@@ -116,9 +116,11 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
   const [scanTime, setScanTime] = useState(new Date());
-  const { demoMode } = useWraith();
+  const { hydrated, demoMode } = useWraith();
 
-  const dataset = demoMode ? MOCK_SIGNALS : MOCK_SIGNALS.slice(0, 6);
+  // Render the rich dataset until hydrated to avoid a flash; then respect the toggle.
+  const effectiveDemoMode = hydrated ? demoMode : true;
+  const dataset = effectiveDemoMode ? MOCK_SIGNALS : MOCK_SIGNALS.slice(0, 6);
   const {
     signals,
     filters,

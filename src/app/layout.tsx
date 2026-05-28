@@ -8,8 +8,15 @@ export const metadata: Metadata = {
   keywords: ['sneaker reselling', 'arbitrage', 'StockX', 'GOAT', 'resale intelligence', 'price tracker'],
   openGraph: {
     title: 'Wraith — AI Resale Intelligence',
-    description: 'See the spread before anyone else.',
+    description: 'A dark, tactical, AI-native resale arbitrage concept. Personal project — no signup, no payment.',
     type: 'website',
+    images: [{ url: '/social-preview.png', width: 1280, height: 640, alt: 'Wraith — see the spread before anyone else' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Wraith — AI Resale Intelligence',
+    description: 'See the spread before anyone else.',
+    images: ['/social-preview.png'],
   },
 };
 

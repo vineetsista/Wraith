@@ -41,7 +41,7 @@ const FEATURE_FLAGS_INITIAL = [
 
 export default function AdminPage() {
   const router = useRouter();
-  const { isAdmin, user, viewMode, toggleViewMode, demoMode, toggleDemoMode, soundEnabled, toggleSound, liveMode, toggleLiveMode } = useWraith();
+  const { hydrated, isAdmin, user, viewMode, toggleViewMode, demoMode, toggleDemoMode, soundEnabled, toggleSound, liveMode, toggleLiveMode } = useWraith();
   const { push } = useActivity();
   const [scanning, setScanning] = useState(false);
   const [flags, setFlags] = useState(FEATURE_FLAGS_INITIAL);
@@ -58,12 +58,12 @@ export default function AdminPage() {
   const scanRate = useAnimateNumber(47284, 1200);
 
   useEffect(() => {
-    if (!isAdmin) {
+    if (hydrated && !isAdmin) {
       router.push('/dashboard');
     }
-  }, [isAdmin, router]);
+  }, [hydrated, isAdmin, router]);
 
-  if (!isAdmin) {
+  if (hydrated && !isAdmin) {
     return (
       <div className="min-h-screen bg-void flex items-center justify-center px-4">
         <div className="max-w-md w-full rounded-xl border border-warning/30 bg-warning/5 p-8 text-center">
